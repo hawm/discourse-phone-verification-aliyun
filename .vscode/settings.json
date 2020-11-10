@@ -1,0 +1,8 @@
+{
+    "ruby.format": "rubocop",
+    "ruby.intellisense": "rubyLocate",
+    "ruby.useLanguageServer": true,
+    "ruby.lint": {
+        "rubocop": true
+    }
+}

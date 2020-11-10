@@ -1,0 +1,12 @@
+{{#if canCheckPhone}}
+<div class="control-group pref-email">
+  <label class="control-label">
+    {{i18n "phone_verification_aliyun.phone.text"}}
+  </label>
+  <div class="controls">
+    {{#link-to "preferences.phone" class="btn btn-default"}}
+      {{d-icon "mobile"}} <span>{{i18n "phone_verification_aliyun.manage_phone.text"}}</span>
+    {{/link-to}}
+  </div>
+</div>
+{{/if}}

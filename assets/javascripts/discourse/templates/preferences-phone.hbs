@@ -1,0 +1,109 @@
+<section class="user-preferences solo-preference">
+  {{#conditional-loading-spinner condition=loading}}
+    <form class="form-horizontal">
+      {{#if hasMessage}}
+        <div class="control-group">
+          <div class="controls">
+            <div class="alert alert-{{if successMessage "success" "error"}}">
+              {{if successMessage successMessage errorMessage}}
+            </div>
+          </div>
+        </div>
+      {{/if}}
+      {{#if progress.continue}}
+        <div class="control-group">
+          <div class="controls">
+            <h3>
+              {{i18n "phone_verification_aliyun.manage_phone.text"}}
+            </h3>
+            <p>
+              {{i18n "phone_verification_aliyun.current_phone.text"}}
+              <span>
+                {{oldPhone.prefix}}
+                {{oldPhone.number}}
+              </span>
+            </p>
+            {{d-button
+              class="btn-primary"
+              action=(action "continueAddOrChange")
+              disable=loading
+              label="continue"
+            }}
+            {{cancel-link route="preferences.account" args=model.username}}
+          </div>
+        </div>
+      {{else if progress.requestToken}}
+        <div class="control-group">
+          <label class="control-label">
+            {{i18n "phone_verification_aliyun.phone.text"}}
+          </label>
+          <div class="controls">
+            {{text-field
+              value=phone.number
+              id="change-phone"
+              autofocus="autofocus"
+            }}
+            {{input-tip validation=phoneValidation}}
+          </div>
+          <div class="controls">
+            <div class="instructions">
+              {{i18n "phone_verification_aliyun.phone.instructions"}}
+            </div>
+          </div>
+          <div class="controls">
+            {{d-button
+              class="btn-primary"
+              title="phone_verification_aliyun.request_token.title"
+              label="phone_verification_aliyun.request_token.text"
+              action=(action "getToken")
+              icon="sms"
+            }}
+          </div>
+        </div>
+      {{else if progress.confirmToken}}
+        <label class="control-label">
+          {{i18n "phone_verification_aliyun.token.title"}}
+        </label>
+        <div class="controls">
+          {{text-field value=token id="token"}}
+        </div>
+      {{else if progress.done}}
+        Done
+      {{else}}
+        <div class="control-group">
+          <label class="control-label">
+            {{i18n "user.password.title"}}
+          </label>
+          <div class="controls">
+            <div>
+              {{text-field
+                value=password
+                id="password"
+                type="password"
+                classNames="input-large"
+                autofocus="autofocus"
+              }}
+            </div>
+            <div class="instructions">
+              {{i18n "user.second_factor.confirm_password_description"}}
+            </div>
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="controls">
+            {{d-button
+              class="btn-primary"
+              type="submit"
+              action=(action "confirmPassword")
+              disabled=loading
+              label="continue"
+            }}
+            {{#unless showEnforcedNotice}}
+              {{cancel-link route="preferences.account" args=model.username}}
+            {{/unless}}
+          </div>
+        </div>
+      {{/if}}
+    </form>
+  {{/conditional-loading-spinner}}
+</section>

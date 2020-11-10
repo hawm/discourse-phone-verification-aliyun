@@ -1,0 +1,46 @@
+plugins:
+  # plugin enable setting
+  hawm_pva_enabled:
+    default: true
+    client: true
+
+  # user premission settings
+  pva_silence_no_phone_user:
+    default: false
+    client: true
+  pva_groups_free_silence:
+    type: group_list
+    default: ""
+  pva_categories_free_silence:
+    type: category_list
+    default: ""
+
+  pva_token_valid_minutes:
+    default: 15
+
+  # SMS provider settings
+  # will be send as parameter
+  pva_aliyun_sms_access_key_id:
+    default: "LTAI4GKDZfHmdGV8D6rPasS1"
+  pva_aliyun_sms_region_id:
+    default: "cn-hangzhou"
+  pva_aliyun_sms_sign_name:
+    default: "知识城社区"
+  pva_aliyun_sms_template_code:
+    default: "SMS_192540333"
+  pva_aliyun_sms_template_parameter_name:
+    default: "code"
+    # optional
+  pva_aliyun_sms_out_id:
+    default: ""
+  pva_aliyun_sms_sms_up_extend_code:
+    default: ""
+  # won't be send as parameter
+  pva_aliyun_sms_access_key_secret:
+    default: "8CrmX0eeTvDhnRM3WP4zWd6a7Jk5lI"
+    secret: true
+  pva_aliyun_sms_http_method:
+    default: "GET"
+  pva_aliyun_sms_send_endpoint:
+    default: "dysmsapi.aliyuncs.com"
+  

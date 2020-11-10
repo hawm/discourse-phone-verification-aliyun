@@ -1,0 +1,33 @@
+en:
+  js:
+    phone_verification_aliyun:
+      phone:
+        text: Phone
+        instructions: Never shown to the public.
+      invalid_phone: 
+        title: Phone Number is invalid, please check again.
+        text: Invalid Phone Number
+      check_phone:
+        title: Reveal this user's phone number
+        text: Show
+      manage_phone:
+        title: Manage phone link to this account
+        text: Manage Phone
+      old_phone:
+        text: Current Phone
+        description: If you want to change to your new phone, please enter a phone number below then
+      add_phone:
+        title: Add phone to account
+        text: Add Phone
+      change_phone:
+        title: Change to a new phone
+        text:  Change Phone
+        taken: Phone number has be taken, please try another one.
+      submit_phone:
+        title: Submit phone and token
+        text: Submit
+      token:
+        title: Token
+      request_token:
+        title: Request a token send to phone by message
+        text: Get Token
